@@ -758,7 +758,6 @@ export default function App() {
                   {loading ? "Saving Entry..." : "Submit Flight Entry"}
                 </button>
               </div>
-
             </div>
           </div>
         </div>

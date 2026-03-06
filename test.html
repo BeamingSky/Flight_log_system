@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strict 24hr Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+        }
+        .card {
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            border: 1px solid #334155;
+        }
+        h2 { margin-top: 0; color: #38bdf8; font-size: 1.5rem; }
+        .input-group { margin-bottom: 1.5rem; text-align: left; }
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #38bdf8;
+            font-size: 1.2rem;
+            font-family: monospace;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input:focus { border-color: #38bdf8; }
+        .result-area {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #0ea5e9;
+            border-radius: 8px;
+            color: white;
+        }
+        .result-label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.9; }
+        #diff-display { font-size: 2rem; font-weight: bold; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>24hr Time Diff</h2>
+    
+    <div class="input-group">
+        <label>Startup (HH:MM)</label>
+        <input type="text" id="startTime" placeholder="22:00" maxlength="5" oninput="formatInput(this)">
+    </div>
+
+    <div class="input-group">
+        <label>Shutdown (HH:MM)</label>
+        <input type="text" id="endTime" placeholder="04:30" maxlength="5" oninput="formatInput(this)">
+    </div>
+
+    <div class="result-area">
+        <span class="result-label">Duration Difference</span>
+        <span id="diff-display">00:00</span>
+    </div>
+</div>
+
+<script>
+    // Automatically adds the colon and calculates
+    function formatInput(el) {
+        let val = el.value.replace(/\D/g, ''); // Remove non-digits
+        if (val.length >= 3) {
+            val = val.slice(0, 2) + ':' + val.slice(2, 4);
+        }
+        el.value = val;
+        
+        if (val.length === 5) {
+            calculate();
+        }
+    }
+
+    function calculate() {
+        const start = document.getElementById('startTime').value;
+        const end = document.getElementById('endTime').value;
+
+        // Basic validation for HH:MM format
+        const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/;
+        if (!timeRegex.test(start) || !timeRegex.test(end)) {
+            document.getElementById('diff-display').innerText = "--:--";
+            return;
+        }
+
+        const toMins = (t) => {
+            const [h, m] = t.split(':').map(Number);
+            return h * 60 + m;
+        };
+
+        let startMins = toMins(start);
+        let endMins = toMins(end);
+        
+        let diff = endMins - startMins;
+        if (diff < 0) diff += 1440; // Wrap around 24 hours
+
+        const h = Math.floor(diff / 60);
+        const m = diff % 60;
+
+        const result = String(h).padStart(2, '0') + ":" + String(m).padStart(2, '0');
+        document.getElementById('diff-display').innerText = result;
+    }
+</script>
+
+</body>
+</html>

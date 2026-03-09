@@ -26,25 +26,21 @@ export const instructors = [
   { value: "SURYANSH MISHRA", label: "SURYANSH MISHRA" },
   { value: "DIGVIJAY SHEKHAWAT", label: "DIGVIJAY SHEKHAWAT" },
   { value: "KV TARUN", label: "KV TARUN" },
-  { value: "NABAJIT MALLIK", label: "NABAJIT MALLIK" },
-  { value: "FAHAD", label: "FAHAD" },
-  { value: "MOHD ARFIN", label: "MOHD ARFIN" },
+  { value: "FAHAD KHAN", label: "FAHAD KHAN" },
+  { value: "ARFIN", label: "ARFIN" },
   { value: "AYUSH RAJ", label: "AYUSH RAJ" },
   { value: "MOHAK PARMAR", label: "MOHAK PARMAR" },
   { value: "PARTH MISHRA", label: "PARTH MISHRA" },
-  { value: "JEROME PATRICK PAUL JERARD", label: "JEROME PATRICK PAUL JERARD" },
+  { value: "JEROME PAUL", label: "JEROME PAUL" },
   { value: "ASHUTOSH SHARMA", label: "ASHUTOSH SHARMA" },
-  { value: "TAPAN SIR", label: "TAPAN SIR" },
-  { value: "TANISH SIR", label: "TANISH SIR" },
-  { value: "GURYOG SIR", label: "GURYOG SIR" },
+  { value: "TAPAN KUMAR", label: "TAPAN KUMAR" },
+  { value: "TANISH KASWAN", label: "TANISH KASWAN" },
+  { value: "GURYOG SINGH", label: "GURYOG SINGH" },
   { value: "YUVRAJ DASHORA", label: "YUVRAJ DASHORA" },
   { value: "JATIN GHANGAS", label: "JATIN GHANGAS" },
   { value: "SIDDHI POOJARY", label: "SIDDHI POOJARY" },
   { value: "SURESH KAURANI", label: "SURESH KAURANI" },
-  { value: "SHEEBA", label: "SHEEBA" },
-  { value: "ANURAG SHARMA", label: "ANURAG SHARMA" },
-  { value: "MAHESH CHANDRA SHARMA", label: "MAHESH CHANDRA SHARMA" },
-  { value: "SHUBHAM VERMA", label: "SHUBHAM VERMA" },
+
   // =========================STUDENTS===========================
   // Batch 1
   { value: "ANIRUDH BORA", label: "ANIRUDH BORA", batch: "1" },
@@ -283,6 +279,25 @@ export const instructors = [
 
 
 
+
+// ─────────────────── LOCATIONS ──────────────────
+export const fromLocations = [
+  { value: "VIKG", label: "VIKG" },
+  { value: "VIKG NEEMUCH", label: "VIKG NEEMUCH" },
+  { value: "VIKG VIKO", label: "VIKG VIKO" },
+  { value: "VIKG MANDSAUR", label: "VIKG MANDSAUR" },
+  { value: "VIKG SEEKAR", label: "VIKG SEEKAR" },
+  { value: "VIKG RANTHAMBORE", label: "VIKG RANTHAMBORE" },
+];
+
+export const toLocations = [
+  { value: "VIKG", label: "VIKG" },
+  { value: "MANDSAUR", label: "MANDSAUR" },
+  { value: "NEEMUCH", label: "NEEMUCH" },
+  { value: "VIKG", label: "VIKG" }
+];
+
+// ────────────────────────────────────────────────
 
 // ------------------------STUDENTS------------------------
 

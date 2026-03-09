@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import Select from "react-select";
+import CreatableSelect from "react-select/creatable";
 import {
   paOptions,
   aircraftOptions,
   instructors,
-  students
+  students,
+  fromLocations,
+  toLocations
 } from "./data";
 
 const selectStyles = {
@@ -427,6 +430,79 @@ const styles = `
       column-gap: 32px;
     }
   }
+
+  /* ── LAST ENTRY PANEL ── */
+  .last-entry {
+    margin-top: 20px;
+    background: rgba(126,184,247,0.04);
+    border: 1px solid rgba(126,184,247,0.18);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .last-entry-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(126,184,247,0.08);
+    border-bottom: 1px solid rgba(126,184,247,0.12);
+  }
+  .last-entry-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(74,222,128,0.6);
+  }
+  .last-entry-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #7eb8f7;
+  }
+  .last-entry-sr {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(126,184,247,0.6);
+  }
+  .last-entry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+  }
+  .last-entry-cell {
+    background: rgba(7,24,46,0.8);
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .last-entry-cell.full {
+    grid-column: 1 / -1;
+  }
+  .lec-label {
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .lec-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #c8deff;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .lec-value.time { color: #7eb8f7; }
+  .lec-value.green { color: #4ade80; }
+  .lec-value.empty { color: rgba(255,255,255,0.2); font-style: italic; }
 `;
 
 export default function App() {
@@ -440,8 +516,8 @@ export default function App() {
   batch: "",
   exercise: "",
   /* new route fields */
-  from: "",
-  to: "",
+  from: { value: "VIKG", label: "VIKG" },
+  to: { value: "VIKG", label: "VIKG" },
   startup: "",
   shutdown: "",
   landings: 0,
@@ -451,6 +527,10 @@ export default function App() {
   remark: ""
 };
 
+  const [lastEntry, setLastEntry] = useState(() => {
+    const saved = localStorage.getItem("flightLogLastEntry");
+    return saved ? JSON.parse(saved) : null;
+  });
   const [form, setForm] = useState(emptyForm);
   const [count, setCount] = useState(() => {
     const saved = localStorage.getItem("flightLogCount");
@@ -462,6 +542,12 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("flightLogCount", String(count));
   }, [count]);
+
+  useEffect(() => {
+  if (lastEntry) {
+    localStorage.setItem("flightLogLastEntry", JSON.stringify(lastEntry));
+  }
+}, [lastEntry]);
 
   const formatTime = (val) => {
     val = val.replace(/\D/g, ''); // Remove non-digits
@@ -522,8 +608,8 @@ export default function App() {
         student: form.student?.value || "",
         batch: form.batch,
         /* include new form fields for route */
-        from: form.from,
-        to: form.to,
+        from: form.from?.value || "",
+        to: form.to?.value || "",
         startup: form.startup,
         exercise: form.exercise,
         shutdown: form.shutdown,
@@ -543,6 +629,7 @@ export default function App() {
       });
       setForm(emptyForm);
       setCount(c => c + 1);
+      setLastEntry({ ...entry });
       // no popup on success
     } catch (e) {
       console.error(e);
@@ -626,27 +713,34 @@ export default function App() {
                   />
                 </div>
               </div>
-              <div className="field">
-                    <label>Batch</label>
-                    <input name="batch" placeholder="Auto-filled from student" value={form.batch} readOnly />
-                    <div className="grid-2" style={{ marginBottom: 10 }}>
-                    <div className="field">
-                      <input
-                        name="from"
-                        placeholder="VIKG"
-                        value={form.from}
-                        onChange={(e) => setForm({ ...form, from: e.target.value.toUpperCase() })}
-                      />
-                    </div>
-                    <div className="field">
-                      <input
-                        name="to"
-                        placeholder="VIKG"
-                        value={form.to}
-                        onChange={(e) => setForm({ ...form, to: e.target.value.toUpperCase() })}
-                      />
-                    </div>
-                  </div>
+
+              <div className="section">
+                <div className="field">
+                  <label>Batch</label>
+                  <input name="batch" placeholder="Auto-filled from student" value={form.batch} readOnly />
+                </div>
+                <div style={{ display: 'flex', gap: '10px', marginTop: '12px' }}>
+                  <CreatableSelect
+                    placeholder="Enter FROM location..."
+                    value={form.from}
+                    options={fromLocations}
+                    onChange={(val) => {
+                      setForm({ ...form, from: val, to: null });
+                    }}
+                    styles={selectStyles}
+                    menuPortalTarget={document.body}
+                    isClearable
+                  />
+                  <CreatableSelect
+                    placeholder="Enter TO location..."
+                    value={form.to}
+                    options={toLocations.filter(loc => !form.from || loc.value !== form.from.value)}
+                    onChange={(val) => setForm({ ...form, to: val })}
+                    styles={selectStyles}
+                    menuPortalTarget={document.body}
+                    isClearable
+                  />
+                </div>
               </div>
               
 
@@ -756,6 +850,64 @@ export default function App() {
                 <button className="submit-btn" onClick={addEntry} disabled={loading}>
                   {loading ? "Saving Entry..." : "Submit Flight Entry"}
                 </button>
+
+                {lastEntry && (
+                  <div className="last-entry">
+                    <div className="last-entry-header">
+                      <div className="last-entry-dot" />
+                      <span className="last-entry-title">Last Submitted Entry</span>
+                      <span className="last-entry-sr">#{String(lastEntry.srno).padStart(3, "0")}</span>
+                    </div>
+                    <div className="last-entry-grid">
+                      <div className="last-entry-cell">
+                        <span className="lec-label">PA / DA</span>
+                        <span className="lec-value">{lastEntry.pada || <span className="empty">—</span>}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Aircraft</span>
+                        <span className="lec-value">{lastEntry.aircraft || "—"}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">PIC</span>
+                        <span className="lec-value">{lastEntry.pic || "—"}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Student</span>
+                        <span className="lec-value">{lastEntry.student || "—"}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Route</span>
+                        <span className="lec-value">{lastEntry.from} → {lastEntry.to}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Exercise</span>
+                        <span className="lec-value">{lastEntry.exercise || "—"}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Startup → Shutdown</span>
+                        <span className="lec-value time">{lastEntry.startup} → {lastEntry.shutdown}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Flying Time</span>
+                        <span className="lec-value green">{lastEntry.flyingTime}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Landings</span>
+                        <span className="lec-value">{lastEntry.landings}</span>
+                      </div>
+                      <div className="last-entry-cell">
+                        <span className="lec-label">Day / Night</span>
+                        <span className="lec-value">{lastEntry.dayNight || "—"}</span>
+                      </div>
+                      {lastEntry.remark ? (
+                        <div className="last-entry-cell full">
+                          <span className="lec-label">Remarks</span>
+                          <span className="lec-value">{lastEntry.remark}</span>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>

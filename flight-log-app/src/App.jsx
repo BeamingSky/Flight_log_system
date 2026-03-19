@@ -676,11 +676,21 @@ export default function App() {
                     value={form.pada} options={paOptions}
                     onChange={(val) => {
                       const updated = { ...form, pada: val };
-                      if (val?.value?.toUpperCase() === "DA-42") {
+                      // Automatically select VT-BBS when DA-24 or DA-42 is selected
+                      if (
+                        val?.value?.toUpperCase() === "DA-24" ||
+                        val?.value?.toUpperCase() === "DA-42"
+                      ) {
                         const defaultAircraft = aircraftOptions.find(
                           (a) => a.value?.toUpperCase() === "VT-BBS"
                         );
                         if (defaultAircraft) updated.aircraft = defaultAircraft;
+                      }
+                      // Clear VT-BBS if user selects PA-28 (not a piper)
+                      if (val?.value?.toUpperCase() === "PA-28") {
+                        if (updated.aircraft?.value?.toUpperCase() === "VT-BBS") {
+                          updated.aircraft = null;
+                        }
                       }
                       setForm(updated);
                     }}
@@ -688,7 +698,14 @@ export default function App() {
                   />
                   <Select
                     placeholder="Select Aircraft"
-                    value={form.aircraft} options={aircraftOptions}
+                    value={form.aircraft}
+                    options={
+                      form.pada?.value?.toUpperCase() === "PA-28"
+                        ? aircraftOptions.filter(
+                            (opt) => opt.value?.toUpperCase() !== "VT-BBS"
+                          )
+                        : aircraftOptions
+                    }
                     onChange={(val) => setForm({ ...form, aircraft: val })}
                     styles={selectStyles} menuPortalTarget={document.body}
                   />

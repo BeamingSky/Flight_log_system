@@ -39,23 +39,18 @@ export const instructors = [
   { value: "GURYOG SINGH", label: "GURYOG SINGH" },
   { value: "YUVRAJ DASHORA", label: "YUVRAJ DASHORA" },
   { value: "JATIN GHANGAS", label: "JATIN GHANGAS" },
-  { value: "SIDDHI POOJARY", label: "SIDDHI POOJARY" },
   { value: "SURESH KAURANI", label: "SURESH KAURANI" },
 
   // =========================STUDENTS===========================
   // Batch 1
   { value: "ANIRUDH BORA", label: "ANIRUDH BORA", batch: "1" },
-  { value: "APEKSHA SHARMA", label: "APEKSHA SHARMA", batch: "1" },
   { value: "BHARGAVI BHARDWAJ", label: "BHARGAVI BHARDWAJ", batch: "1" },
-  { value: "DEVANSH SINGH BAIS", label: "DEVANSH SINGH BAIS", batch: "1" },
   { value: "DILSHAD NAVSHAD IDRISI", label: "DILSHAD NAVSHAD IDRISI", batch: "1" },
-  { value: "DRISHA MODI", label: "DRISHA MODI", batch: "1" },
   { value: "GOURAV GAUTAM", label: "GOURAV GAUTAM", batch: "1" },
   { value: "HARDIK AGARWAL", label: "HARDIK AGARWAL", batch: "1" },
   { value: "HARSHITA BATRA", label: "HARSHITA BATRA", batch: "1" },
   { value: "ISHITA BHARDWAJ", label: "ISHITA BHARDWAJ", batch: "1" },
   { value: "JAI DEV PRATAP SINGH", label: "JAI DEV PRATAP SINGH", batch: "1" },
-  { value: "JANVI BALWANI", label: "JANVI BALWANI", batch: "1" },
   { value: "KASHISH SANTOSH CHAUDHARY", label: "KASHISH SANTOSH CHAUDHARY", batch: "1" },
   { value: "LAKSHYA SETHI", label: "LAKSHYA SETHI", batch: "1" },
   { value: "MANSI CHOUDHARY", label: "MANSI CHOUDHARY", batch: "1" },
@@ -66,26 +61,10 @@ export const instructors = [
   { value: "PREM KUMAR", label: "PREM KUMAR", batch: "1" },
   { value: "PRIYANSHI YADAV", label: "PRIYANSHI YADAV", batch: "1" },
   { value: "PURUHANS", label: "PURUHANS", batch: "1" },
-  { value: "PURVANSHI GUPTA", label: "PURVANSHI GUPTA", batch: "1" },
   { value: "RISHABH SINDHU", label: "RISHABH SINDHU", batch: "1" },
-  { value: "RIYA MANGLANI", label: "RIYA MANGLANI", batch: "1" },
-  { value: "ROMIN GOSWAMI", label: "ROMIN GOSWAMI", batch: "1" },
-  { value: "SAHIL BACHHAWAT", label: "SAHIL BACHHAWAT", batch: "1" },
-  { value: "SAMEER KUMAR YADAV", label: "SAMEER KUMAR YADAV", batch: "1" },
-  { value: "SARTAJ GULZAR", label: "SARTAJ GULZAR", batch: "1" },
   { value: "SARTHAK MEHROTRA", label: "SARTHAK MEHROTRA", batch: "1" },
-  { value: "SATYAM PESWANI", label: "SATYAM PESWANI", batch: "1" },
-  { value: "SHARDUL SETH", label: "SHARDUL SETH", batch: "1" },
-  { value: "SHAURYA SINGH", label: "SHAURYA SINGH", batch: "1" },
-  { value: "TEJAS BHATIA", label: "TEJAS BHATIA", batch: "1" },
-  { value: "TRIJAL KUMAR", label: "TRIJAL KUMAR", batch: "1" },
-  { value: "UTKARSH SRIVASTAVA", label: "UTKARSH SRIVASTAVA", batch: "1" },
   { value: "VAIBHAV GARG", label: "VAIBHAV GARG", batch: "1" },
-  { value: "VALLABH AMBADAS UMALE", label: "VALLABH AMBADAS UMALE", batch: "1" },
-  { value: "VEDANT GYANCHANDANI", label: "VEDANT GYANCHANDANI", batch: "1" },
-  { value: "VIJAY SAHU", label: "VIJAY SAHU", batch: "1" },
   { value: "VIVAAN KASHYAP", label: "VIVAAN KASHYAP", batch: "1" },
-  { value: "VRINDA JHURIA", label: "VRINDA JHURIA", batch: "1" },
 
   // Batch 2
   { value: "ABHYUDAY KUMAWAT", label: "ABHYUDAY KUMAWAT", batch: "2" },
@@ -100,38 +79,24 @@ export const instructors = [
   { value: "PRASOON MATHUR", label: "PRASOON MATHUR", batch: "2" },
   { value: "PRIYANSHI KUMAR", label: "PRIYANSHI KUMAR", batch: "2" },
   { value: "RAGHAV DWIVEDI", label: "RAGHAV DWIVEDI", batch: "2" },
-  { value: "SANI MALIK", label: "SANI MALIK", batch: "2" },
   { value: "SHRUTI KUMARI", label: "SHRUTI KUMARI", batch: "2" },
   { value: "SNEHA JAUHARI", label: "SNEHA JAUHARI", batch: "2" },
-  { value: "TANVEER SINGH ANEJA", label: "TANVEER SINGH ANEJA", batch: "2" },
+
   // Batch 3
   { value: "ADESH KUMAR YADAV", label: "ADESH KUMAR YADAV", batch: "3" },
   { value: "ANTRA KATOCH", label: "ANTRA KATOCH", batch: "3" },
   { value: "ASHMAN SINGH SANDHU", label: "ASHMAN SINGH SANDHU", batch: "3" },
   { value: "BHANU PRATAP SINGH", label: "BHANU PRATAP SINGH", batch: "3" },
-  { value: "BHARAT DHAKAR", label: "BHARAT DHAKAR", batch: "3" },
-  { value: "CHAVI SAXENA", label: "CHAVI SAXENA", batch: "3" },
   { value: "DEVEN SHARMA", label: "DEVEN SHARMA", batch: "3" },
   { value: "DISHA THAKKAR", label: "DISHA THAKKAR", batch: "3" },
-  { value: "EKLAVYA SINGH", label: "EKLAVYA SINGH", batch: "3" },
   { value: "HIR PATEL", label: "HIR PATEL", batch: "3" },
-  { value: "JAYAGANESAN S", label: "JAYAGANESAN S", batch: "3" },
   { value: "NANDAN VACHHANI", label: "NANDAN VACHHANI", batch: "3" },
-  { value: "NAVYYA MAKIN", label: "NAVYYA MAKIN", batch: "3" },
-  { value: "NIKHIL GOEL", label: "NIKHIL GOEL", batch: "3" },
-  { value: "PARV TAYAL", label: "PARV TAYAL", batch: "3" },
-  { value: "PRIYANSHU SINGHAL", label: "PRIYANSHU SINGHAL", batch: "3" },
   { value: "RAJAT MEENA", label: "RAJAT MEENA", batch: "3" },
-  { value: "RIYA SUTHAR", label: "RIYA SUTHAR", batch: "3" },
   { value: "SAIYAM CHAKRAVERTY", label: "SAIYAM CHAKRAVERTY", batch: "3" },
-  { value: "SAMRUDDHA SHETE", label: "SAMRUDDHA SHETE", batch: "3" },
-  { value: "SAYONI AGARWAL", label: "SAYONI AGARWAL", batch: "3" },
   { value: "SHIVANI UDAR", label: "SHIVANI UDAR", batch: "3" },
   { value: "SIDNEY FERNANDES", label: "SIDNEY FERNANDES", batch: "3" },
-  { value: "TANU PRIYA", label: "TANU PRIYA", batch: "3" },
 
   // Batch 4
-  { value: "AMAN KUMAR DALAL", label: "AMAN KUMAR DALAL", batch: "4" },
   { value: "DIVYANSH AGARWAL", label: "DIVYANSH AGARWAL", batch: "4" },
   { value: "ISHA RATHOD", label: "ISHA RATHOD", batch: "4" },
   { value: "JAI SHARMA", label: "JAI SHARMA", batch: "4" },
@@ -272,7 +237,19 @@ export const instructors = [
   { value: "SARUGURU UJJAIN RAJ", label: "SARUGURU UJJAIN RAJ", batch: "11" },
   { value: "VAISHNAVI KESARI", label: "VAISHNAVI KESARI", batch: "11" },
   { value: "VUPPU SIDDHARTH", label: "VUPPU SIDDHARTH", batch: "11" },
-  { value: "YASH PRAVIN SALVI", label: "YASH PRAVIN SALVI", batch: "11" }
+  { value: "YASH PRAVIN SALVI", label: "YASH PRAVIN SALVI", batch: "11" },
+
+  // Batch 12
+  { value: "ADITYA KULKARNI", label: "ADITYA KULKARNI", batch: "12" },
+  { value: "ANANT MEHROTRA", label: "ANANT MEHROTRA", batch: "12" },
+  { value: "GEETANJALI MAITY", label: "GEETANJALI MAITY", batch: "12" },
+  { value: "KAJAL SONI", label: "KAJAL SONI", batch: "12" },
+  { value: "KUNSH ASHISH KHAIRKAR", label: "KUNSH ASHISH KHAIRKAR", batch: "12" },
+  { value: "PRATHAM RAJKUMAR DHARU", label: "PRATHAM RAJKUMAR DHARU", batch: "12" },
+  { value: "RANJIT PANJA", label: "RANJIT PANJA", batch: "12" },
+  { value: "SAMEEP GOGIA", label: "SAMEEP GOGIA", batch: "12" },
+  { value: "TANISHKA ARORA", label: "TANISHKA ARORA", batch: "12" },
+  { value: "TANISHKA SHARMA", label: "TANISHKA SHARMA", batch: "12" }
 ];
 
 
@@ -321,7 +298,6 @@ export const students = [
   { value: "GURYOG SIR", label: "GURYOG SIR" },
   { value: "YUVRAJ DASHORA", label: "YUVRAJ DASHORA" },
   { value: "JATIN GHANGAS", label: "JATIN GHANGAS" },
-  { value: "SIDDHI POOJARY", label: "SIDDHI POOJARY" },
   { value: "SURESH KAURANI", label: "SURESH KAURANI" },
 
   // =========================STUDENTS===========================
@@ -350,27 +326,15 @@ export const students = [
   { value: "PREM KUMAR", label: "PREM KUMAR", batch: "1" },
   { value: "PRIYANSHI YADAV", label: "PRIYANSHI YADAV", batch: "1" },
   { value: "PURUHANS", label: "PURUHANS", batch: "1" },
-  { value: "PURVANSHI GUPTA", label: "PURVANSHI GUPTA", batch: "1" },
   { value: "RISHABH SINDHU", label: "RISHABH SINDHU", batch: "1" },
   { value: "RIYA MANGLANI", label: "RIYA MANGLANI", batch: "1" },
-  { value: "ROMIN GOSWAMI", label: "ROMIN GOSWAMI", batch: "1" },
   { value: "SAHIL BACHHAWAT", label: "SAHIL BACHHAWAT", batch: "1" },
   { value: "SAMEER KUMAR YADAV", label: "SAMEER KUMAR YADAV", batch: "1" },
   { value: "SARTAJ GULZAR", label: "SARTAJ GULZAR", batch: "1" },
   { value: "SARTHAK MEHROTRA", label: "SARTHAK MEHROTRA", batch: "1" },
-  { value: "SATYAM PESWANI", label: "SATYAM PESWANI", batch: "1" },
-  { value: "SHARDUL SETH", label: "SHARDUL SETH", batch: "1" },
-  { value: "SHAURYA SINGH", label: "SHAURYA SINGH", batch: "1" },
-  { value: "TANISH KASWAN NAYASAR", label: "TANISH KASWAN NAYASAR", batch: "1" },
-  { value: "TEJAS BHATIA", label: "TEJAS BHATIA", batch: "1" },
-  { value: "TRIJAL KUMAR", label: "TRIJAL KUMAR", batch: "1" },
-  { value: "UTKARSH SRIVASTAVA", label: "UTKARSH SRIVASTAVA", batch: "1" },
   { value: "VAIBHAV GARG", label: "VAIBHAV GARG", batch: "1" },
-  { value: "VALLABH AMBADAS UMALE", label: "VALLABH AMBADAS UMALE", batch: "1" },
   { value: "VEDANT GYANCHANDANI", label: "VEDANT GYANCHANDANI", batch: "1" },
   { value: "VIJAY SAHU", label: "VIJAY SAHU", batch: "1" },
-  { value: "VIVAAN KASHYAP", label: "VIVAAN KASHYAP", batch: "1" },
-  { value: "VRINDA JHURIA", label: "VRINDA JHURIA", batch: "1" },
 
   // Batch 2
   { value: "ABHYUDAY KUMAWAT", label: "ABHYUDAY KUMAWAT", batch: "2" },
@@ -388,7 +352,7 @@ export const students = [
   { value: "SANI MALIK", label: "SANI MALIK", batch: "2" },
   { value: "SHRUTI KUMARI", label: "SHRUTI KUMARI", batch: "2" },
   { value: "SNEHA JAUHARI", label: "SNEHA JAUHARI", batch: "2" },
-  { value: "TANVEER SINGH ANEJA", label: "TANVEER SINGH ANEJA", batch: "2" },
+
   // Batch 3
   { value: "ADESH KUMAR YADAV", label: "ADESH KUMAR YADAV", batch: "3" },
   { value: "ANTRA KATOCH", label: "ANTRA KATOCH", batch: "3" },
@@ -410,10 +374,8 @@ export const students = [
   { value: "RIYA SUTHAR", label: "RIYA SUTHAR", batch: "3" },
   { value: "SAIYAM CHAKRAVERTY", label: "SAIYAM CHAKRAVERTY", batch: "3" },
   { value: "SAMRUDDHA SHETE", label: "SAMRUDDHA SHETE", batch: "3" },
-  { value: "SAYONI AGARWAL", label: "SAYONI AGARWAL", batch: "3" },
   { value: "SHIVANI UDAR", label: "SHIVANI UDAR", batch: "3" },
   { value: "SIDNEY FERNANDES", label: "SIDNEY FERNANDES", batch: "3" },
-  { value: "TANU PRIYA", label: "TANU PRIYA", batch: "3" },
 
   // Batch 4
   { value: "AMAN KUMAR DALAL", label: "AMAN KUMAR DALAL", batch: "4" },
@@ -551,11 +513,23 @@ export const students = [
   { value: "NITYA JAIN", label: "NITYA JAIN", batch: "11" },
   { value: "PALAK RATHI", label: "PALAK RATHI", batch: "11" },
   { value: "HET POPAT", label: "HET POPAT", batch: "11" },
-  { value: "PRASAD B V", label: "PRASAD B V", batch: "11" },
+  { value: "PRASAD BV", label: "PRASAD BV", batch: "11" },
   { value: "PRITHVIRAJ SINGH RATHORE", label: "PRITHVIRAJ SINGH RATHORE", batch: "11" },
   { value: "RAUNEET SHEKHAR", label: "RAUNEET SHEKHAR", batch: "11" },
   { value: "UJJAIN RAJ", label: "UJJAIN RAJ", batch: "11" },
   { value: "VAISHNAVI KESARI", label: "VAISHNAVI KESARI", batch: "11" },
   { value: "SIDDHARTH VUPPU", label: "SIDDHARTH VUPPU", batch: "11" },
-  { value: "YASH SALVI", label: "YASH SALVI", batch: "11" }
+  { value: "YASH SALVI", label: "YASH SALVI", batch: "11" },
+
+  // Batch 12
+  { value: "ADITYA KULKARNI", label: "ADITYA KULKARNI", batch: "12" },
+  { value: "ANANT MEHROTRA", label: "ANANT MEHROTRA", batch: "12" },
+  { value: "GEETANJALI MAITY", label: "GEETANJALI MAITY", batch: "12" },
+  { value: "KAJAL SONI", label: "KAJAL SONI", batch: "12" },
+  { value: "KUNSH ASHISH KHAIRKAR", label: "KUNSH ASHISH KHAIRKAR", batch: "12" },
+  { value: "PRATHAM RAJKUMAR DHARU", label: "PRATHAM RAJKUMAR DHARU", batch: "12" },
+  { value: "RANJIT PANJA", label: "RANJIT PANJA", batch: "12" },
+  { value: "SAMEEP GOGIA", label: "SAMEEP GOGIA", batch: "12" },
+  { value: "TANISHKA ARORA", label: "TANISHKA ARORA", batch: "12" },
+  { value: "TANISHKA SHARMA", label: "TANISHKA SHARMA", batch: "12" }
 ];
